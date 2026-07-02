@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use App\Command\SakuraCloud\Dns\Acme\Text\Cleanup;
+use App\Command\SakuraCloud\Dns\Acme\Text\Register;
+use Symfony\Component\Console\Application;
+
+require_once __DIR__ . '/vendor/autoload.php';
+chdir(__DIR__);
+$cmd = new Application();
+$cmd->add(new Register());
+$cmd->add(new Cleanup());
+$cmd->run();
